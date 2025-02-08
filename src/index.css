@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-text-light-primary;
+  }
+}
+
+@font-face {
+  font-family: "Londrina";
+  src: url("./assets/fonts/LondrinaSolid-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("./assets/fonts/Lato-Regular.ttf");
+}
