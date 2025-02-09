@@ -1,4 +1,3 @@
-import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import useLogin from "./useLogin";
 import Button from "../../components/Button";
@@ -6,27 +5,26 @@ import Textbox from "../../components/TextBox";
 import * as Icon from "../../assets";
 
 const Login = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
-
-  const { isVisible, toggleVisibility } = useLogin();
+  const { isVisible, toggleVisibility, register, errors } = useLogin();
 
   return (
     <div className="flex min-h-screen w-full min-w-[100vw] flex-col items-center justify-center bg-login bg-cover p-4">
-      <form className="flex w-[529px] flex-col gap-[37px] rounded-2xl bg-[#181A1C] p-10 opacity-[84%]">
-        <div className="flex items-center justify-center gap-1">
-          <img src={Icon.logo} alt="Logo" className="h-11 w-[50px]" />
-          <h1 className="text-center font-londrina text-title font-normal">
+      <form className="flex w-[309px] flex-col gap-5 rounded-2xl bg-auth-bg p-10 sm:w-[529px] sm:gap-9.25">
+        <div className="flex items-center justify-center gap-0.1 leading-none sm:gap-1">
+          <img
+            src={Icon.logo}
+            alt="Logo"
+            className="h-[19.82] w-[24.59px] sm:h-[36.34px] sm:w-[42.56px]"
+          />
+          <h1 className="text-center font-londrina text-title-mb font-normal sm:text-title">
             CHILL
           </h1>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-          <h3 className="text-[32px] font-bold">Masuk</h3>
-          <p>Selamat datang kembali!</p>
+        <div className="flex flex-col items-center justify-center gap-1.1 leading-none sm:gap-2">
+          <h3 className="text-large font-bold sm:text-large-2">Masuk</h3>
+          <p className="text-small-mb sm:text-small">Selamat datang kembali!</p>
         </div>
-        <div className="flex flex-col gap-[37px]">
+        <div className="flex flex-col gap-9.25">
           <Textbox
             placeholder="Masukkan username"
             type="text"
@@ -64,11 +62,13 @@ const Login = () => {
             }
           >
             <div className="mt-[6px] flex justify-between">
-              <p>
+              <p className="text-small text-text-light-secondary">
                 Belum punya akun?{" "}
-                <strong className="text-[14px]">Daftar</strong>
+                <strong className="text-sm text-text-light-primary">
+                  Daftar
+                </strong>
               </p>
-              <strong className="text-[14px]">Lupa kata sandi?</strong>
+              <strong className="text-sm">Lupa kata sandi?</strong>
             </div>
           </Textbox>
 
@@ -78,7 +78,9 @@ const Login = () => {
               label="Masuk"
               className="rounded-3xl bg-other-extra-bg"
             />
-            <p className="text-center font-medium text-[14]">Atau</p>
+            <p className="text-center text-sm font-medium text-text-light-secondary">
+              Atau
+            </p>
             <Button
               type="button"
               label="Masuk dengan Google"

@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "border-white": "#E7E3FC",
+        "auth-bg": "hsla(210, 8%, 10%, 0.84)",
         "primary-default": "hsla(230, 100%, 60%, 1)",
         "primary-100": "hsla(231, 72%, 50%, 1)",
         "primary-200": "hsla(232, 76%, 41%, 1)",
@@ -67,8 +68,26 @@ export default {
         londrina: ["Londrina"],
       },
       fontSize: {
+        "title-mb": "28.88px",
         title: "50px",
+        "small-mb": "10px",
+        small: "16px",
+        large: "18px",
+        "large-1": "26px",
+        "large-2": "32px",
       },
+      gap: {
+        0.1: "2.31px",
+        1.1: "4.62px",
+        9.25: "37px",
+      },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
   },
   plugins: [],
