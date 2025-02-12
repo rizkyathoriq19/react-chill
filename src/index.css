@@ -6,6 +6,9 @@
   body {
     @apply text-text-light-primary;
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 @font-face {
