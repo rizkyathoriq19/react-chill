@@ -69,7 +69,7 @@ const FormRegister = () => {
                   placeholder="Masukkan kata sandi"
                   className=""
                   iconShow={<Eye size={"100%"} />}
-                  iconHide={<EyeOff size={"size100%"} />}
+                  iconHide={<EyeOff size={"100%"} />}
                   isVisible={isVisible.password}
                   setIsVisible={() =>
                     setIsVisible((prev) => ({
@@ -102,9 +102,10 @@ const FormRegister = () => {
                   placeholder="Masukkan kata sandi"
                   className=""
                   iconShow={<Eye size={"100%"} />}
-                  iconHide={<EyeOff size={"size100%"} />}
+                  iconHide={<EyeOff size={"100%"} />}
                   leftDesc="Sudah punya akun?"
-                  link="Daftar"
+                  linkText="Daftar"
+                  leftLink="/login"
                   isVisible={isVisible.passwordConfirmation}
                   setIsVisible={() =>
                     setIsVisible((prev) => ({

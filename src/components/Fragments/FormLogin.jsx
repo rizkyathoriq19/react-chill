@@ -1,6 +1,6 @@
 import { Form, FormControl, FormItem, FormField } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
-import { InputWithLabel, InputWithPassword } from "@/components/Elements/Input";
+import { InputWithLabel, InputWithPassDesc } from "@/components/Elements/Input";
 import { AuthButton } from "@/components/Elements/Button";
 import * as Icon from "@/assets";
 import { Eye, EyeOff } from "lucide-react";
@@ -56,13 +56,18 @@ const FormLogin = () => {
           render={({ field, fieldState }) => (
             <FormItem>
               <FormControl>
-                <InputWithPassword
+                <InputWithPassDesc
                   type={isVisible.password ? "text" : "password"}
                   label="Kata Sandi"
                   placeholder="Masukkan kata sandi"
                   className=""
+                  leftDesc="Belum punya akun?"
+                  rightDesc="Lupa kata sandi?"
+                  linkText="Daftar"
+                  leftLink="/register"
+                  rightLink="/forgot-password"
                   iconShow={<Eye size={"100%"} />}
-                  iconHide={<EyeOff size={"size100%"} />}
+                  iconHide={<EyeOff size={"100%"} />}
                   isVisible={isVisible.password}
                   setIsVisible={() =>
                     setIsVisible((prev) => ({

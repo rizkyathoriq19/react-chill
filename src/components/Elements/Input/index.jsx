@@ -77,7 +77,9 @@ export const InputWithPassDesc = React.forwardRef(({ ...props }, ref) => {
     setIsVisible = () => {},
     leftDesc,
     rightDesc,
-    link,
+    leftLink,
+    rightLink,
+    linkText,
   } = props;
   return (
     <div>
@@ -93,11 +95,15 @@ export const InputWithPassDesc = React.forwardRef(({ ...props }, ref) => {
         setIsVisible={setIsVisible}
       />
       <div className="mt-2 flex justify-between">
-        <p className="text-base text-text-light-secondary">
+        <p className="text-small-mb text-text-light-secondary sm:text-base">
           {leftDesc}{" "}
-          <span className="text-sm text-text-light-primary">{link}</span>
+          <span className="cursor-pointer text-small-mb text-text-light-primary sm:text-sm">
+            <a href={leftLink}>{linkText}</a>
+          </span>
         </p>
-        <span className="text-sm">{rightDesc}</span>
+        <span className="cursor-pointer text-small-mb sm:text-sm">
+          <a href={rightLink}>{rightDesc}</a>
+        </span>
       </div>
     </div>
   );

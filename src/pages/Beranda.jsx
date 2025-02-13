@@ -1,5 +1,7 @@
+import NavBar from "@/components/Fragments/NavBar";
+
 const Beranda = () => {
-  return <div>Beranda</div>;
+  return <NavBar />;
 };
 
 export default Beranda;

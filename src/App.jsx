@@ -2,8 +2,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./App.css";
 import Beranda from "./pages/Beranda";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/auth/login";
+import Register from "./pages/auth/register/";
 import PageLayout from "./components/commons/PageLayout";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route
-            path="/beranda"
+            path="/home"
             element={
               <PageLayout title="Beranda">
                 <Beranda />
@@ -21,7 +21,7 @@ function App() {
             }
           />
           <Route
-            path="/register"
+            path="/auth/register"
             element={
               <PageLayout title="Daftar">
                 <Register />
@@ -29,7 +29,7 @@ function App() {
             }
           />
           <Route
-            path="/login"
+            path="/auth/login"
             element={
               <PageLayout title="Masuk">
                 <Login />
