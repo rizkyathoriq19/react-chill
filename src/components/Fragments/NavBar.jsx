@@ -41,14 +41,14 @@ const NavBar = () => {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink>
+            <NavigationMenuLink asChild>
               <Link to="/home" className="text-lg">
                 Film
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink>
+            <NavigationMenuLink asChild>
               <Link to="/home" className="text-lg">
                 Daftar Saya
               </Link>
@@ -58,11 +58,13 @@ const NavBar = () => {
       </NavigationMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger className="ml-auto flex items-center">
-          <ButtonWithAvatar
-            avatar={Icon.avatar}
-            icon={<ChevronDown strokeWidth={4} />}
-          />
+        <DropdownMenuTrigger asChild>
+          <div className="ml-auto">
+            <ButtonWithAvatar
+              avatar={Icon.avatar}
+              icon={<ChevronDown strokeWidth={4} />}
+            />
+          </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40 border-none bg-other-page-header-bg text-sm font-medium text-text-light-primary">
           <DropdownMenuLabel>Akun Saya</DropdownMenuLabel>
