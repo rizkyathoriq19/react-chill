@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const InputWithLabel = React.forwardRef(({ ...props }, ref) => {
   const { type, placeholder, label, className } = props;
@@ -97,13 +98,19 @@ export const InputWithPassDesc = React.forwardRef(({ ...props }, ref) => {
       <div className="mt-2 flex justify-between">
         <p className="text-small-mb text-text-light-secondary sm:text-base">
           {leftDesc}{" "}
-          <span className="cursor-pointer text-small-mb text-text-light-primary sm:text-sm">
-            <a href={leftLink}>{linkText}</a>
-          </span>
+          <Link
+            to={leftLink}
+            className="cursor-pointer text-small-mb text-text-light-primary sm:text-sm"
+          >
+            {linkText}
+          </Link>
         </p>
-        <span className="cursor-pointer text-small-mb sm:text-sm">
-          <a href={rightLink}>{rightDesc}</a>
-        </span>
+        <Link
+          to={rightLink}
+          className="cursor-pointer text-small-mb sm:text-sm"
+        >
+          {rightDesc}
+        </Link>
       </div>
     </div>
   );

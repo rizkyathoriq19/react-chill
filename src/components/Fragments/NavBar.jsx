@@ -5,19 +5,18 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, UserRound, Star, LogOut } from "lucide-react";
 import * as Icon from "@/assets";
+import { DropdownItem } from "../Elements/Dropdown";
+import { ButtonWithAvatar } from "../Elements/Button";
 
 const NavBar = () => {
   return (
@@ -59,38 +58,25 @@ const NavBar = () => {
       </NavigationMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild className="ml-auto flex gap-2">
-          <Button
-            variant="default"
-            className="bg-transparent hover:bg-transparent focus-visible:ring-0"
-          >
-            <Avatar>
-              <AvatarImage src={Icon.avatar} alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            <ChevronDown strokeWidth={4} />
-          </Button>
+        <DropdownMenuTrigger className="ml-auto flex items-center">
+          <ButtonWithAvatar
+            avatar={Icon.avatar}
+            icon={<ChevronDown strokeWidth={4} />}
+          />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-40 border-none bg-other-page-header-bg text-sm font-medium text-text-light-primary">
           <DropdownMenuLabel>Akun Saya</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem className="focus:bg-transparent">
-              <div className="flex items-center gap-2 text-sm hover:text-primary-default">
-                {" "}
-                <UserRound size={18} /> Profil Saya
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem className="focus:bg-transparent">
-              <div className="flex items-center gap-2 text-sm hover:text-primary-default">
-                <Star size={18} /> Ubah Premium
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem className="focus:bg-transparent">
-              <div className="flex items-center gap-2 text-sm hover:text-primary-default">
-                <LogOut size={18} /> Keluar
-              </div>
-            </DropdownMenuItem>
+            <DropdownItem icon={<UserRound size={18} />} link="">
+              Profil Saya
+            </DropdownItem>
+            <DropdownItem icon={<Star size={18} />} link="">
+              Ubah Premium
+            </DropdownItem>
+            <DropdownItem icon={<LogOut size={18} />} link="/auth/login">
+              Keluar
+            </DropdownItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>

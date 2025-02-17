@@ -1,3 +1,5 @@
+import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -73,3 +75,22 @@ export const AuthButton = (props) => {
     </div>
   );
 };
+
+export const ButtonWithAvatar = React.forwardRef(({ ...props }, ref) => {
+  const { icon, avatar } = props;
+
+  return (
+    <Button
+      ref={ref}
+      variant="default"
+      size="icon"
+      className="bg-transparent p-0 hover:bg-transparent focus-visible:ring-0"
+    >
+      <Avatar>
+        <AvatarImage src={avatar} alt="avatar icon" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      {icon && <div className="pointer-events-auto">{icon}</div>}
+    </Button>
+  );
+});

@@ -1,6 +1,5 @@
 import { ButtonAction, ButtonPrimary } from "../Elements/Button";
 import { VolumeOff, Info } from "lucide-react";
-import { Circle } from "../Elements/Circle";
 
 const MainHeader = () => {
   return (
@@ -21,9 +20,9 @@ const MainHeader = () => {
           <ButtonPrimary className="w-44 bg-other-paper-bg hover:bg-other-extra-bg">
             <Info strokeWidth={3} /> Selengkapnya
           </ButtonPrimary>
-          <Circle size={40} className="text-text-light-secondary">
+          <ButtonAction className="pointer-events-none h-10 w-10 border-text-light-secondary bg-transparent text-text-light-secondary">
             18+
-          </Circle>
+          </ButtonAction>
           <ButtonAction className="ml-auto h-10 w-10 border-text-light-secondary bg-transparent">
             <VolumeOff
               className="leading-none text-text-light-secondary"
