@@ -13,7 +13,7 @@ export const InputWithLabel = React.forwardRef(({ ...props }, ref) => {
         className,
       )}
     >
-      <Label htmlFor={label} className="text-small-mb sm:text-lg">
+      <Label htmlFor={label} className="text-xs-medium sm:text-lg">
         {label}
       </Label>
       <Input
@@ -96,18 +96,18 @@ export const InputWithPassDesc = React.forwardRef(({ ...props }, ref) => {
         setIsVisible={setIsVisible}
       />
       <div className="mt-2 flex justify-between">
-        <p className="text-small-mb text-text-light-secondary sm:text-base">
+        <p className="text-xs-medium text-text-light-secondary sm:text-base">
           {leftDesc}{" "}
           <Link
             to={leftLink}
-            className="cursor-pointer text-small-mb text-text-light-primary sm:text-sm"
+            className="text-xs-medium cursor-pointer text-text-light-primary sm:text-sm"
           >
             {linkText}
           </Link>
         </p>
         <Link
           to={rightLink}
-          className="cursor-pointer text-small-mb sm:text-sm"
+          className="text-xs-medium cursor-pointer sm:text-sm"
         >
           {rightDesc}
         </Link>

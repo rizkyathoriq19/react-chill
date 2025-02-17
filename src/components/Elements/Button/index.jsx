@@ -23,7 +23,7 @@ export const ButtonOutline = (props) => {
     <Button
       variant="outline"
       className={cn(
-        "hover:text-other-extra-text hover:other-outline-border h-7 w-full rounded-full border-other-outline-border bg-other-extra-bg text-base text-small-mb hover:bg-other-paper-bg sm:h-12 sm:text-base",
+        "hover:text-other-extra-text hover:other-outline-border text-xs-medium h-7 w-full rounded-full border-other-outline-border bg-other-extra-bg text-base hover:bg-other-paper-bg sm:h-12 sm:text-base",
         className,
       )}
     >

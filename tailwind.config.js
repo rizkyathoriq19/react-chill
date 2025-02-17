@@ -69,11 +69,148 @@ export default {
       fontSize: {
         "title-mb": "28.88px",
         title: "50px",
-        "small-mb": "10px",
-        small: "16px",
-        large: "18px",
         "large-1": "26px",
         "large-2": "32px",
+        "heading-xl": [
+          "2.625rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "3.563rem",
+            fontWeight: 700,
+          },
+        ],
+        "heading-l": [
+          "2.25rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "3.563rem",
+            fontWeight: 700,
+          },
+        ],
+        "heading-m": [
+          "1.875rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "3.563rem",
+            fontWeight: 700,
+          },
+        ],
+        "heading-s": [
+          "1.5rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "2.438rem",
+            fontWeight: 700,
+          },
+        ],
+        xl: [
+          "1.25rem",
+          {
+            letterSpacing: "0.15%",
+            lineHeight: "2.063rem",
+          },
+        ],
+        "xl-medium": [
+          "1.25rem",
+          {
+            letterSpacing: "0.15%",
+            lineHeight: "2.063rem",
+            fontWeight: 500,
+          },
+        ],
+        "xl-bold": [
+          "1.188rem",
+          {
+            letterSpacing: "0.15%",
+            lineHeight: "2.063rem",
+            fontWeight: 700,
+          },
+        ],
+        l: [
+          "1.125rem",
+          {
+            letterSpacing: "0.2%",
+            lineHeight: "1.813rem",
+          },
+        ],
+        "l-medium": [
+          "1.125rem",
+          {
+            letterSpacing: "0.2%",
+            lineHeight: "1.813rem",
+            fontWeight: 500,
+          },
+        ],
+        m: [
+          "1rem",
+          {
+            letterSpacing: "0.5%",
+            lineHeight: "1.625rem",
+          },
+        ],
+        "m-medium": [
+          "1rem",
+          {
+            letterSpacing: "0.5%",
+            lineHeight: "1.625rem",
+            fontWeight: 500,
+          },
+        ],
+        s: [
+          "0.875rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "1.375rem",
+          },
+        ],
+        "s-medium": [
+          "0.875rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "1.375rem",
+            fontWeight: 500,
+          },
+        ],
+        xs: [
+          "0.688rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "1.188rem",
+          },
+        ],
+        "xs-medium": [
+          "0.688rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "1.188rem",
+            fontWeight: 500,
+          },
+        ],
+        "2xs": [
+          "0.563rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "1rem",
+          },
+        ],
+
+        "2xs-medium": [
+          "0.563rem",
+          {
+            letterSpacing: "0.25%",
+            lineHeight: "0.4375rem",
+            fontWeight: 500,
+          },
+        ],
+      },
+      boxShadow: {
+        placeholder: "1px 2px 2px rgba(0, 0, 0, 0.08)",
+        "floating-button": "16px 16px 40px rgba(122, 121, 136, 0.2)",
+        "floating-button-small": "0px 4px 4px rgba(0, 0, 0, 0.25)",
+        "card-shadow": "0px 2px 4px rgba(0, 0, 0, 0.1)",
+        navigation: "16px 0px 40px rgba(122, 121, 136, 0.2)",
+        drawer: "4px 0px 4px rgba(0,0,0,0.15)",
+        floating: "16px 16px 40px rgba(122, 121, 136, 0.2)",
       },
       gap: {
         0.1: "2.31px",

@@ -17,8 +17,8 @@ const AuthLayout = (props) => {
           </h1>
         </CardTitle>
         <div className="flex flex-col items-center justify-center gap-1.1 leading-none sm:gap-2">
-          <h3 className="text-large font-bold sm:text-large-2">{titleDesc}</h3>
-          <p className="text-small-mb sm:text-small">{titleSubDesc}</p>
+          <h3 className="text-l font-bold sm:text-large-2">{titleDesc}</h3>
+          <p className="text-xs-medium sm:text-m">{titleSubDesc}</p>
         </div>
       </CardHeader>
       <CardContent className="p-0">{children}</CardContent>

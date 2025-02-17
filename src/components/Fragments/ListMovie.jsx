@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-const LandscapeMovie = (props) => {
+const ListMovie = (props) => {
   const { title, height, width, basis } = props;
   return (
     <div className="flex w-full flex-col gap-8 bg-other-page-header-bg px-20 py-10">
@@ -51,4 +51,4 @@ const LandscapeMovie = (props) => {
   );
 };
 
-export default LandscapeMovie;
+export default ListMovie;
