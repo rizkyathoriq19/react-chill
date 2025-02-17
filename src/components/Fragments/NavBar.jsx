@@ -21,7 +21,7 @@ import * as Icon from "@/assets";
 
 const NavBar = () => {
   return (
-    <nav className="flex h-20 w-full items-center bg-auth-bg px-20 py-6">
+    <nav className="flex h-20 w-full items-center bg-other-page-header-bg px-20 py-6">
       <div className="mr-20 flex items-center justify-center gap-1">
         <img
           src={Icon.logo}
@@ -65,7 +65,7 @@ const NavBar = () => {
             className="bg-transparent hover:bg-transparent focus-visible:ring-0"
           >
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage src={Icon.avatar} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <ChevronDown strokeWidth={4} />
@@ -78,17 +78,17 @@ const NavBar = () => {
             <DropdownMenuItem className="focus:bg-transparent">
               <div className="flex items-center gap-2 text-sm hover:text-primary-default">
                 {" "}
-                <UserRound /> Profil Saya
+                <UserRound size={18} /> Profil Saya
               </div>
             </DropdownMenuItem>
             <DropdownMenuItem className="focus:bg-transparent">
               <div className="flex items-center gap-2 text-sm hover:text-primary-default">
-                <Star /> Ubah Premium
+                <Star size={18} /> Ubah Premium
               </div>
             </DropdownMenuItem>
             <DropdownMenuItem className="focus:bg-transparent">
               <div className="flex items-center gap-2 text-sm hover:text-primary-default">
-                <LogOut /> Keluar
+                <LogOut size={18} /> Keluar
               </div>
             </DropdownMenuItem>
           </DropdownMenuGroup>

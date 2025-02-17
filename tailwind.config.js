@@ -53,10 +53,14 @@ export default {
         "grey-scale-200": "hsla(0, 0%, 93%, 1)",
         "grey-scale-100": "hsla(0, 0%, 96%, 1)",
         "grey-scale-50": "hsla(0, 0%, 98%, 1)",
+        "linear-from": "hsla(0, 0%, 0%, 0)",
+        "linear-via": "hsla(210, 8%, 7%, 0.86)",
+        "linear-to": "hsla(210, 8%, 10%, 1)",
       },
       backgroundImage: {
         login: "url('/src/assets/images/login-bg.jpeg')",
         register: "url('/src/assets/images/register-bg.jpeg')",
+        "main-bg": "url('/src/assets/images/main-bg.png')",
       },
       fontFamily: {
         sans: ["Lato", "sans-serif"],
