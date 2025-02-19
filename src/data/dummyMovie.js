@@ -17,7 +17,7 @@ const dummyMovie = [
       { id: 1, name: "Watching" },
       { id: 2, name: "Top-Rating" },
     ],
-    progress: "50%",
+    progressBar: "50%",
     badge: "New",
   },
   {
@@ -48,7 +48,7 @@ const dummyMovie = [
       { id: 1, name: "Watching" },
       { id: 3, name: "Film-Trending" },
     ],
-    progress: "10%",
+    progressBar: "10%",
     badge: "Top 10",
   },
   {
@@ -70,7 +70,7 @@ const dummyMovie = [
       { id: 1, name: "Watching" },
       { id: 2, name: "New-Release" },
     ],
-    progress: "10%",
+    progressBar: "10%",
     badge: "Top 10",
   },
   {
@@ -99,7 +99,7 @@ const dummyMovie = [
       { id: 1, name: "Watching" },
       { id: 2, name: "Top-Rating" },
     ],
-    progress: "50%",
+    progressBar: "50%",
     badge: "New",
   },
   {
@@ -117,7 +117,7 @@ const dummyMovie = [
       { id: 2, name: "portrait", image: "/images/suzume-potrait.png" },
     ],
     status: [{ id: 2, name: "Top-Rating" }],
-    progress: "0%",
+    progressBar: "0%",
     badge: "New",
   },
   {
@@ -143,7 +143,7 @@ const dummyMovie = [
       },
     ],
     status: [{ id: 2, name: "Film-Trending" }],
-    progress: "0%",
+    progressBar: "0%",
     badge: "New",
   },
   {
@@ -169,7 +169,7 @@ const dummyMovie = [
       },
     ],
     status: [{ id: 2, name: "New-Release" }],
-    progress: "100%",
+    progressBar: "100%",
     badge: "New",
   },
 ];

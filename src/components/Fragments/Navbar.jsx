@@ -26,8 +26,12 @@ const navigationLinks = [
 ];
 
 const dropdownItems = [
-  { icon: <UserRound size={18} />, label: "Profil Saya", link: "" },
-  { icon: <Star size={18} />, label: "Ubah Premium", link: "" },
+  {
+    icon: <UserRound size={18} fill="white" />,
+    label: "Profil Saya",
+    link: "",
+  },
+  { icon: <Star size={18} fill="white" />, label: "Ubah Premium", link: "" },
   { icon: <LogOut size={18} />, label: "Keluar", link: "/auth/login" },
 ];
 
