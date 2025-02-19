@@ -3,3 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.space-y-1\.5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: 0; /* Set margin-top to 0 */
+  margin-bottom: 0; /* Set margin-bottom to 0 */
+}
+
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: 0;
+  margin-left: 0;
+}

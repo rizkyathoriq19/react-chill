@@ -5,10 +5,10 @@ import {
   InputWithPassDesc,
   InputWithPassword,
 } from "@/components/Elements/Input";
-import { AuthButton } from "@/components/Elements/Button";
 import * as Icon from "@/assets";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const FormRegister = () => {
   const form = useForm({
@@ -105,7 +105,7 @@ const FormRegister = () => {
                   iconHide={<EyeOff size={"100%"} />}
                   leftDesc="Sudah punya akun?"
                   linkText="Daftar"
-                  leftLink="/login"
+                  leftLink="/auth/login"
                   isVisible={isVisible.passwordConfirmation}
                   setIsVisible={() =>
                     setIsVisible((prev) => ({
@@ -124,14 +124,28 @@ const FormRegister = () => {
             </FormItem>
           )}
         />
-
-        <AuthButton
-          buttonName="Daftar"
-          iconButtonName="Daftar dengan Google"
-          icon={Icon.googleIcon}
-        >
-          Atau
-        </AuthButton>
+        <div className="flex flex-col gap-1 sm:gap-2">
+          <Button
+            variant="outlined"
+            className="hover:other-outlineBorder h-7 w-full border-other-outlineBorder bg-other-extraBg text-2xs-semibold hover:bg-other-extraBg/80 sm:h-12 sm:text-m"
+          >
+            Daftar
+          </Button>
+          <p className="text-center text-2xs-medium text-light-disabled sm:text-s-medium">
+            Atau
+          </p>
+          <Button
+            variant="outlined"
+            className="hover:text-other-extra-text hover:other-outlineBorder h-7 w-full rounded-full border-other-outlineBorder bg-transparent text-2xs-semibold hover:bg-auth-bg/80 sm:h-12 sm:text-base"
+          >
+            <img
+              src={Icon.googleIcon}
+              alt="googleIcon"
+              className="h-2 w-2 sm:h-4 sm:w-4"
+            />
+            Daftar dengan Google
+          </Button>
+        </div>
       </form>
     </Form>
   );

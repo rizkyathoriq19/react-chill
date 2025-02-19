@@ -1,10 +1,10 @@
 import { Form, FormControl, FormItem, FormField } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { InputWithLabel, InputWithPassDesc } from "@/components/Elements/Input";
-import { AuthButton } from "@/components/Elements/Button";
 import * as Icon from "@/assets";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { Button } from "../ui/button";
 
 const FormLogin = () => {
   const form = useForm({
@@ -17,7 +17,10 @@ const FormLogin = () => {
     console.log("Form Data:", data);
   };
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState({
+    password: false,
+    passwordConfirmation: false,
+  });
 
   return (
     <Form {...form}>
@@ -64,7 +67,7 @@ const FormLogin = () => {
                   leftDesc="Belum punya akun?"
                   rightDesc="Lupa kata sandi?"
                   linkText="Daftar"
-                  leftLink="/register"
+                  leftLink="/auth/register"
                   rightLink="/forgot-password"
                   iconShow={<Eye size={"100%"} />}
                   iconHide={<EyeOff size={"100%"} />}
@@ -86,14 +89,28 @@ const FormLogin = () => {
             </FormItem>
           )}
         />
-
-        <AuthButton
-          buttonName="Masuk"
-          iconButtonName="Masuk dengan Google"
-          icon={Icon.googleIcon}
-        >
-          Atau
-        </AuthButton>
+        <div className="flex flex-col gap-1 sm:gap-2">
+          <Button
+            variant="outlined"
+            className="hover:other-outlineBorder h-7 w-full border-other-outlineBorder bg-other-extraBg text-2xs-semibold hover:bg-other-extraBg/80 sm:h-12 sm:text-m"
+          >
+            Masuk
+          </Button>
+          <p className="text-center text-2xs-medium text-light-disabled sm:text-s-medium">
+            Atau
+          </p>
+          <Button
+            variant="outlined"
+            className="hover:text-other-extra-text hover:other-outlineBorder h-7 w-full rounded-full border-other-outlineBorder bg-transparent text-2xs-semibold hover:bg-auth-bg/80 sm:h-12 sm:text-base"
+          >
+            <img
+              src={Icon.googleIcon}
+              alt="googleIcon"
+              className="h-2 w-2 sm:h-4 sm:w-4"
+            />
+            Masuk dengan Google
+          </Button>
+        </div>
       </form>
     </Form>
   );
