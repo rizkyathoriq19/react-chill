@@ -11,9 +11,16 @@ import { Star } from "lucide-react";
 import dummyMovie from "@/data/dummyMovie";
 
 const ListMovie = ({ title, status }) => {
-  const filteredMovies = dummyMovie.filter(
-    (movie) => movie.status.name.toLowerCase() === status.toLowerCase(),
-  );
+  const filteredMovies = dummyMovie
+    .filter((movie) => movie.status.some((s) => s.name === status))
+    .map((movie) => ({
+      ...movie,
+      poster:
+        status === "Watching"
+          ? movie.posters.find((p) => p.name === "landscape")
+          : movie.posters.find((p) => p.name === "portrait"),
+    }))
+    .filter((movie) => movie.poster);
 
   const itemBasis = status === "Watching" ? "basis-1/4" : "basis-1/5";
   const itemHeight = status === "Watching" ? "162px" : "365px";
@@ -40,7 +47,7 @@ const ListMovie = ({ title, status }) => {
                       />
                       {status === "Watching" && (
                         <>
-                          <div className="from-linear-from-image to-linear-to-image absolute inset-0 bg-gradient-to-b opacity-50"></div>
+                          <div className="absolute inset-0 bg-gradient-to-b from-linear-from-image to-linear-to-image opacity-50"></div>
                           <div className="absolute bottom-0 left-0 flex w-full justify-between px-4 pb-4 text-light-primary">
                             <p className="text-heading-xs">{movie.title}</p>
                             <p className="flex items-center gap-1 text-s">

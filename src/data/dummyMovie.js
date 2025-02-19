@@ -9,12 +9,14 @@ const dummyMovie = [
     duration: "2h 18m",
     certification: "R",
     rating: 7.3,
-    poster: {
-      id: 1,
-      name: "landscape",
-      image: "/images/dont-look-up-landscape.png",
-    },
-    status: { id: 1, name: "Watching" },
+    posters: [
+      { id: 1, name: "landscape", image: "/images/dont-look-up-landscape.png" },
+      { id: 2, name: "portrait", image: "/images/dont-look-up-potrait.png" },
+    ],
+    status: [
+      { id: 1, name: "Watching" },
+      { id: 2, name: "Top-Rating" },
+    ],
     progress: "50%",
     badge: "New",
   },
@@ -30,12 +32,22 @@ const dummyMovie = [
     total: "12 Episodes",
     certification: "17+",
     rating: 8.3,
-    poster: {
-      id: 1,
-      name: "landscape",
-      image: "/images/all-of-us-are-dead-landscape.png",
-    },
-    status: { id: 1, name: "Watching" },
+    posters: [
+      {
+        id: 1,
+        name: "landscape",
+        image: "/images/all-of-us-are-dead-landscape.png",
+      },
+      {
+        id: 2,
+        name: "portrait",
+        image: "/images/all-of-us-are-dead-potrait.png",
+      },
+    ],
+    status: [
+      { id: 1, name: "Watching" },
+      { id: 3, name: "Film-Trending" },
+    ],
     progress: "10%",
     badge: "Top 10",
   },
@@ -50,12 +62,14 @@ const dummyMovie = [
     total: "12 Episodes",
     certification: "17+",
     rating: 8.3,
-    poster: {
-      id: 1,
-      name: "landscape",
-      image: "/images/blue-lock-landscape.png",
-    },
-    status: { id: 1, name: "Watching" },
+    posters: [
+      { id: 1, name: "landscape", image: "/images/blue-lock-landscape.png" },
+      { id: 2, name: "portrait", image: "/images/blue-lock-potrait.png" },
+    ],
+    status: [
+      { id: 1, name: "Watching" },
+      { id: 2, name: "New-Release" },
+    ],
     progress: "10%",
     badge: "Top 10",
   },
@@ -69,12 +83,22 @@ const dummyMovie = [
     duration: "1h 46m",
     certification: "PG-13",
     rating: 7.3,
-    poster: {
-      id: 1,
-      name: "landscape",
-      image: "/images/a-man-called-otto-landscape.png",
-    },
-    status: { id: 1, name: "Watching" },
+    posters: [
+      {
+        id: 1,
+        name: "landscape",
+        image: "/images/a-man-called-otto-landscape.png",
+      },
+      {
+        id: 2,
+        name: "portrait",
+        image: "/images/a-man-called-otto-potrait.png",
+      },
+    ],
+    status: [
+      { id: 1, name: "Watching" },
+      { id: 2, name: "Top-Rating" },
+    ],
     progress: "50%",
     badge: "New",
   },
@@ -88,13 +112,12 @@ const dummyMovie = [
     duration: "2h 2m",
     certification: "PG-13",
     rating: 7.3,
-    poster: {
-      id: 2,
-      name: "potrait",
-      image: "/images/suzume-potrait.png",
-    },
-    status: { id: 2, name: "Top-Rating" },
-    progress: "50%",
+    posters: [
+      { id: 1, name: "landscape", image: "/images/suzume-landscape.png" },
+      { id: 2, name: "portrait", image: "/images/suzume-potrait.png" },
+    ],
+    status: [{ id: 2, name: "Top-Rating" }],
+    progress: "0%",
     badge: "New",
   },
   {
@@ -107,13 +130,20 @@ const dummyMovie = [
     duration: "2h 18m",
     certification: "PG-13",
     rating: 7.3,
-    poster: {
-      id: 2,
-      name: "potrait",
-      image: "/images/the-tomorrow-war-potrait.png",
-    },
-    status: { id: 3, name: "Film-Trending" },
-    progress: "50%",
+    posters: [
+      {
+        id: 1,
+        name: "landscape",
+        image: "/images/the-tomorrow-war-landscape.png",
+      },
+      {
+        id: 2,
+        name: "portrait",
+        image: "/images/the-tomorrow-war-potrait.png",
+      },
+    ],
+    status: [{ id: 2, name: "Film-Trending" }],
+    progress: "0%",
     badge: "New",
   },
   {
@@ -126,13 +156,20 @@ const dummyMovie = [
     duration: "2h 18m",
     certification: "PG-13",
     rating: 7.3,
-    poster: {
-      id: 2,
-      name: "potrait",
-      image: "/images/duty-after-school-potrait.png",
-    },
-    status: { id: 4, name: "New-Release" },
-    progress: "50%",
+    posters: [
+      {
+        id: 1,
+        name: "landscape",
+        image: "/images/duty-after-school-landscape.png",
+      },
+      {
+        id: 2,
+        name: "portrait",
+        image: "/images/duty-after-school-potrait.png",
+      },
+    ],
+    status: [{ id: 2, name: "New-Release" }],
+    progress: "100%",
     badge: "New",
   },
 ];
