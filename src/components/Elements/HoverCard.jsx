@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Check, ChevronDown, CircleSmall, Star } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { createPortal } from "react-dom";
+import { Badge } from "../ui/badge";
 
 export const HoverCardMovie = ({ movie, status, type }) => {
   const {
@@ -21,6 +22,7 @@ export const HoverCardMovie = ({ movie, status, type }) => {
     episode,
     now,
     progressBar,
+    badge,
   } = movie;
   const { itemHeight, itemWidth, statusMovie } = type;
 
@@ -74,6 +76,21 @@ export const HoverCardMovie = ({ movie, status, type }) => {
                   </p>
                 </div>
               </>
+            )}
+            {badge === "New" && (
+              <div className="absolute left-4 top-4">
+                <Badge className="pointer-events-none h-7 w-28 justify-center rounded-full bg-primary-300 px-2 py-1 text-s-bold text-light-primary">
+                  Episode Baru
+                </Badge>
+              </div>
+            )}
+
+            {badge === "Top 10" && (
+              <div className="absolute right-3 top-0">
+                <Badge className="pointer-events-none h-12 w-8 justify-center text-wrap rounded-bl rounded-br-none rounded-tl-none rounded-tr bg-error-pressed p-1 text-center text-s text-light-primary">
+                  Top 10
+                </Badge>
+              </div>
             )}
           </CardContent>
         </Card>

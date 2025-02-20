@@ -18,7 +18,7 @@ const dummyMovie = [
       { id: 2, name: "Top-Rating" },
     ],
     progressBar: "50%",
-    badge: "New",
+    badge: "None",
   },
   {
     id: 2,
@@ -71,7 +71,7 @@ const dummyMovie = [
       { id: 2, name: "New-Release" },
     ],
     progressBar: "10%",
-    badge: "Top 10",
+    badge: "New",
   },
   {
     id: 4,
@@ -100,7 +100,7 @@ const dummyMovie = [
       { id: 2, name: "Top-Rating" },
     ],
     progressBar: "50%",
-    badge: "New",
+    badge: "None",
   },
   {
     id: 5,
@@ -144,7 +144,7 @@ const dummyMovie = [
     ],
     status: [{ id: 2, name: "Film-Trending" }],
     progressBar: "0%",
-    badge: "New",
+    badge: "Top 10",
   },
   {
     id: 7,
@@ -199,7 +199,7 @@ const dummyMovie = [
       { id: 2, name: "New-Release" },
     ],
     progressBar: "100%",
-    badge: "New",
+    badge: "None",
   },
   {
     id: 9,
@@ -230,7 +230,7 @@ const dummyMovie = [
       { id: 4, name: "New-Release" },
     ],
     progressBar: "100%",
-    badge: "New",
+    badge: "None",
   },
   {
     id: 10,
@@ -288,7 +288,7 @@ const dummyMovie = [
       { id: 2, name: "Top-Rating" },
     ],
     progressBar: "100%",
-    badge: "New",
+    badge: "None",
   },
   {
     id: 12,
@@ -309,7 +309,7 @@ const dummyMovie = [
       { id: 2, name: "Top-Rating" },
     ],
     progressBar: "100%",
-    badge: "New",
+    badge: "None",
   },
   {
     id: 13,
@@ -327,7 +327,7 @@ const dummyMovie = [
     ],
     status: [{ id: 3, name: "Film-Trending" }],
     progressBar: "100%",
-    badge: "New",
+    badge: "Top 10",
   },
   {
     id: 14,
@@ -441,7 +441,7 @@ const dummyMovie = [
     ],
     status: [{ id: 4, name: "New-Release" }],
     progressBar: "100%",
-    badge: "New",
+    badge: "None",
   },
 ];
 
