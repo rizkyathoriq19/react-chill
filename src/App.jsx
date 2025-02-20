@@ -6,12 +6,14 @@ import "./App.css";
 function App() {
   return (
     <HelmetProvider>
-      <main>
-        <Routes>
-          {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element} />
-          ))}
-        </Routes>
+      <main className="flex items-center justify-center bg-other-pageHeaderBg">
+        <div className="max-w-[1440px]">
+          <Routes>
+            {routes.map((route, index) => (
+              <Route key={index} path={route.path} element={route.element} />
+            ))}
+          </Routes>
+        </div>
       </main>
     </HelmetProvider>
   );
