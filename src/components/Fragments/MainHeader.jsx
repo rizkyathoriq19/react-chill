@@ -17,14 +17,14 @@ const MainHeader = () => {
             depan dalam perang.
           </p>
         </div>
-        <div className="flex items-center justify-center gap-3">
+        <div className="gap:2 flex items-center justify-center sm:gap-3">
           <Button
             variant="shadow"
             className="h-6 w-14 text-xs-bold sm:h-11 sm:w-24 sm:text-m-bold"
           >
             Mulai
           </Button>
-          <Button className="h-6 w-32 bg-other-paperBg text-xs-bold hover:bg-other-paperBg/85 sm:h-11 sm:w-44 sm:text-m-bold">
+          <Button className="h-6 w-32 items-center bg-other-paperBg px-3 py-1 text-xs-bold hover:bg-other-paperBg/85 sm:h-11 sm:w-44 sm:px-6 sm:py-2 sm:text-m-bold">
             <Info strokeWidth={3} className="!h-3 !w-3 sm:!h-6 sm:!w-6" />{" "}
             Selengkapnya
           </Button>
@@ -36,7 +36,7 @@ const MainHeader = () => {
           </Button>
           <Button
             variant="outlined"
-            className="ml-auto h-6 w-6 border-light-secondary bg-transparent p-1 hover:bg-transparent sm:h-11 sm:w-11 sm:p-2"
+            className="ml-auto h-7 w-7 border-light-secondary bg-transparent p-1 hover:bg-transparent sm:h-11 sm:w-11 sm:p-2"
           >
             <VolumeOff
               className="h-3 w-3 leading-none text-light-secondary sm:!h-6 sm:!w-6"

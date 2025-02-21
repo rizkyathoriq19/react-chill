@@ -30,10 +30,13 @@ const ListMovie = ({ title, status }) => {
   };
 
   return (
-    <div className="flex w-full flex-col gap-8 bg-other-pageHeaderBg px-20 py-10">
-      <h3 className="text-heading-l">{title}</h3>
+    <div className="flex w-full flex-col gap-5 bg-other-pageHeaderBg px-5 py-5 sm:gap-8 sm:px-20 sm:py-10">
+      <h3 className="text-heading-s sm:text-heading-l">{title}</h3>
       <div className="w-full">
-        <Carousel opts={{ align: "start", loop: true }} className="w-full">
+        <Carousel
+          opts={{ align: "start", loop: true, drag: "free" }}
+          className="w-full"
+        >
           <CarouselContent className="flex w-full gap-1">
             {filteredMovies.map((movie) => (
               <CarouselItem
@@ -52,10 +55,10 @@ const ListMovie = ({ title, status }) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="absolute left-7 top-1/2 z-10 -translate-y-1/2 transform">
+          <div className="absolute left-7 top-1/2 z-10 hidden -translate-y-1/2 transform sm:block">
             <CarouselPrevious className="h-11 w-11 border-other-outlineBorder bg-other-bodyBg" />
           </div>
-          <div className="absolute right-7 top-1/2 z-10 -translate-y-1/2 transform">
+          <div className="absolute right-7 top-1/2 z-10 hidden -translate-y-1/2 transform sm:block">
             <CarouselNext className="h-11 w-11 border-other-outlineBorder bg-other-bodyBg" />
           </div>
         </Carousel>
@@ -65,3 +68,8 @@ const ListMovie = ({ title, status }) => {
 };
 
 export default ListMovie;
+
+// },
+// "devDependencies": {
+// 	"nw": "^0.70.0-sdk",
+// 	"nw-gyp": "^3.6.6"

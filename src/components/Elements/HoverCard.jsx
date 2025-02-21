@@ -10,6 +10,7 @@ import { Play, Check, ChevronDown, CircleSmall, Star } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { createPortal } from "react-dom";
 import { Badge } from "../ui/badge";
+import { cn } from "@/lib/utils";
 
 export const HoverCardMovie = ({ movie, status, type }) => {
   const {
@@ -54,7 +55,8 @@ export const HoverCardMovie = ({ movie, status, type }) => {
     <HoverCard>
       <HoverCardTrigger>
         <Card
-          className="border-none"
+          // className={cn("border-none", itemHeight, itemWidth)}
+          className={cn("border-none")}
           style={{ height: itemHeight, width: itemWidth }}
         >
           <CardContent className="relative h-full w-full rounded-md p-0">
