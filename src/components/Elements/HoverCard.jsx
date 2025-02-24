@@ -54,11 +54,7 @@ export const HoverCardMovie = ({ movie, status, type }) => {
   return (
     <HoverCard>
       <HoverCardTrigger>
-        <Card
-          // className={cn("border-none", itemHeight, itemWidth)}
-          className={cn("border-none")}
-          style={{ height: itemHeight, width: itemWidth }}
-        >
+        <Card className={cn("border-none", itemHeight, itemWidth)}>
           <CardContent className="relative h-full w-full rounded-md p-0">
             <img
               src={
@@ -72,9 +68,13 @@ export const HoverCardMovie = ({ movie, status, type }) => {
               <>
                 <div className="absolute inset-0 bg-gradient-to-b from-linear-from-image to-linear-to-image opacity-50" />
                 <div className="absolute bottom-0 left-0 flex w-full justify-between px-4 pb-4 text-light-primary">
-                  <p className="text-heading-xs">{title}</p>
-                  <p className="flex items-center gap-1 text-s">
-                    <Star size={16} fill="white" /> {rating}/5
+                  <p className="text-s-bold sm:text-heading-xs">{title}</p>
+                  <p className="flex items-center gap-1 text-2xs sm:text-s">
+                    <Star
+                      size={window.innerWidth < 640 ? 12 : 16}
+                      fill="white"
+                    />{" "}
+                    {rating}/5
                   </p>
                 </div>
               </>

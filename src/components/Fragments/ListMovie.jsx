@@ -37,7 +37,10 @@ const ListMovie = ({ title, status }) => {
           opts={{ align: "start", loop: true, drag: "free" }}
           className="w-full"
         >
-          <CarouselContent className="flex w-full gap-1">
+          <CarouselContent
+            className="flex w-full gap-1"
+            overflow="sm:overflow-hidden overflow-visible"
+          >
             {filteredMovies.map((movie) => (
               <CarouselItem
                 key={movie.id}
