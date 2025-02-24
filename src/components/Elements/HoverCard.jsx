@@ -80,16 +80,16 @@ export const HoverCardMovie = ({ movie, status, type }) => {
               </>
             )}
             {badge === "New" && (
-              <div className="absolute left-4 top-4">
-                <Badge className="pointer-events-none h-7 w-28 justify-center rounded-full bg-primary-300 px-2 py-1 text-s-bold text-light-primary">
+              <div className="absolute left-2 top-0 sm:left-4 sm:top-4">
+                <Badge className="pointer-events-none h-4 w-11 justify-center text-nowrap rounded-full bg-primary-300 px-1 py-[3px] text-[5.74px] font-bold text-light-primary sm:h-7 sm:w-28 sm:px-2 sm:py-1 sm:text-s-bold">
                   Episode Baru
                 </Badge>
               </div>
             )}
 
             {badge === "Top 10" && (
-              <div className="absolute right-3 top-0">
-                <Badge className="pointer-events-none h-12 w-8 justify-center text-wrap rounded-bl rounded-br-none rounded-tl-none rounded-tr bg-error-pressed p-1 text-center text-s text-light-primary">
+              <div className="absolute right-1 top-[-10px] sm:right-3 sm:top-0">
+                <Badge className="pointer-events-none h-[21.82px] w-[14.82px] justify-center text-wrap rounded-bl rounded-br-none rounded-tl-none rounded-tr bg-error-pressed p-[1.91px] text-center text-[6.69px] text-s text-light-primary sm:h-12 sm:w-8 sm:p-1">
                   Top 10
                 </Badge>
               </div>
