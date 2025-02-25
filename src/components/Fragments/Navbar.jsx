@@ -27,12 +27,20 @@ const navigationLinks = [
 
 const dropdownItems = [
   {
-    icon: <UserRound size={18} fill="white" />,
+    icon: <UserRound size={window.innerWidth < 640 ? 16 : 18} fill="white" />,
     label: "Profil Saya",
     link: "",
   },
-  { icon: <Star size={18} fill="white" />, label: "Ubah Premium", link: "" },
-  { icon: <LogOut size={18} />, label: "Keluar", link: "/auth/login" },
+  {
+    icon: <Star size={window.innerWidth < 640 ? 16 : 18} fill="white" />,
+    label: "Ubah Premium",
+    link: "",
+  },
+  {
+    icon: <LogOut size={window.innerWidth < 640 ? 16 : 18} />,
+    label: "Keluar",
+    link: "/auth/login",
+  },
 ];
 
 const Navbar = () => {
@@ -88,8 +96,10 @@ const Navbar = () => {
             </Button>
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40 border-none bg-other-pageHeaderBg text-s-semibold text-light-primary">
-          <DropdownMenuLabel>Akun Saya</DropdownMenuLabel>
+        <DropdownMenuContent className="absolute right-[-20px] top-0 w-28 border-none bg-other-pageHeaderBg text-s-semibold text-light-primary sm:right-[-80px] sm:w-40">
+          <DropdownMenuLabel className="!text-xs-semibold sm:!text-m-semibold">
+            Akun Saya
+          </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             {dropdownItems.map(({ icon, label, link }) => (
