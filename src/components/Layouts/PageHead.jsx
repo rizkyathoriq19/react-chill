@@ -4,7 +4,7 @@ const PageHead = ({ title }) => {
   return (
     <Helmet>
       <title>{title}</title>
-      <link rel="icon" href="/vite.svg" type="image/x-icon" />
+      <link rel="icon" href="/Vector.png" type="image/png" />
     </Helmet>
   );
 };

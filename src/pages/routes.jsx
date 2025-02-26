@@ -3,6 +3,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import { Navigate } from "react-router-dom";
 import PageLayout from "@/components/Layouts/PageLayout";
+import NotFound from "./NotFound";
 
 export const routes = [
   {
@@ -30,6 +31,14 @@ export const routes = [
     element: (
       <PageLayout title="Daftar">
         <Register />
+      </PageLayout>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <PageLayout title="404">
+        <NotFound />
       </PageLayout>
     ),
   },
