@@ -18,6 +18,7 @@ import { ChevronDown, UserRound, Star, LogOut } from "lucide-react";
 import * as Icon from "@/assets";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const navigationLinks = [
   { name: "Series", to: "/home" },
@@ -27,23 +28,44 @@ const navigationLinks = [
 
 const dropdownItems = [
   {
-    icon: <UserRound size={window.innerWidth < 640 ? 16 : 18} fill="white" />,
+    key: "profile",
+    icon: (hovered) => (
+      <UserRound
+        size={window.innerWidth < 640 ? 16 : 18}
+        fill={hovered ? "#3254FF" : "white"}
+      />
+    ),
     label: "Profil Saya",
     link: "",
   },
   {
-    icon: <Star size={window.innerWidth < 640 ? 16 : 18} fill="white" />,
+    key: "premium",
+    icon: (hovered) => (
+      <Star
+        size={window.innerWidth < 640 ? 16 : 18}
+        fill={hovered ? "#3254FF" : "white"}
+      />
+    ),
     label: "Ubah Premium",
     link: "",
   },
   {
-    icon: <LogOut size={window.innerWidth < 640 ? 16 : 18} />,
+    key: "logout",
+    icon: (hovered) => (
+      <LogOut
+        size={window.innerWidth < 640 ? 16 : 18}
+        stroke={hovered ? "#3254FF" : "white"}
+        fill="none"
+      />
+    ),
     label: "Keluar",
     link: "/auth/login",
   },
 ];
 
 const Navbar = () => {
+  const [hoveredItem, setHoveredItem] = useState(null);
+
   return (
     <nav className="flex h-14 w-full items-center bg-other-pageHeaderBg px-5 py-2 sm:h-24 sm:px-20 sm:py-6">
       {/* Logo and Title */}
@@ -102,10 +124,15 @@ const Navbar = () => {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            {dropdownItems.map(({ icon, label, link }) => (
+            {dropdownItems.map(({ icon, label, link, key }) => (
               <DropdownMenuItem key={label} className="focus:bg-transparent">
-                <div className="flex items-center gap-2 text-sm hover:text-primary">
-                  {icon}{" "}
+                <div
+                  key={key}
+                  className="flex items-center gap-2 text-sm hover:text-primary"
+                  onMouseEnter={() => setHoveredItem(key)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  {icon(hoveredItem === key)}{" "}
                   <Link to={link} className="text-2xs-medium sm:text-s-medium">
                     {label}
                   </Link>
