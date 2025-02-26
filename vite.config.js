@@ -5,6 +5,7 @@ import path from "path";
 const __dirname = path.resolve();
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [react()],
   resolve: {
     alias: {
