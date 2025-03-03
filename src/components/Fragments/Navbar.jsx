@@ -26,6 +26,11 @@ const navigationLinks = [
   { name: "Daftar Saya", to: "/home" },
 ];
 
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  window.location.href = "/auth/login";
+};
+
 const dropdownItems = [
   {
     key: "profile",
@@ -59,7 +64,7 @@ const dropdownItems = [
       />
     ),
     label: "Keluar",
-    link: "/auth/login",
+    action: handleLogout,
   },
 ];
 
@@ -124,13 +129,14 @@ const Navbar = () => {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            {dropdownItems.map(({ icon, label, link, key }) => (
+            {dropdownItems.map(({ icon, label, link, key, action }) => (
               <DropdownMenuItem key={label} className="focus:bg-transparent">
                 <div
                   key={key}
                   className="flex items-center gap-2 text-sm hover:text-primary"
                   onMouseEnter={() => setHoveredItem(key)}
                   onMouseLeave={() => setHoveredItem(null)}
+                  onClick={action ? action : undefined}
                 >
                   {icon(hoveredItem === key)}{" "}
                   <Link to={link} className="text-2xs-medium sm:text-s-medium">

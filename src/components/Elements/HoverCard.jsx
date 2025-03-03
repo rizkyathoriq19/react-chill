@@ -28,7 +28,13 @@ export const HoverCardMovie = ({ movie, status, type }) => {
   const { itemHeight, itemWidth, statusMovie } = type;
 
   const [progress, setProgress] = useState(0);
-  let translateY = "10px";
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setProgress(progressBar), 100);
@@ -45,11 +51,9 @@ export const HoverCardMovie = ({ movie, status, type }) => {
     [posters],
   );
 
-  if (statusMovie === "Watching") {
-    translateY = "150px";
-  } else {
-    translateY = "40px";
-  }
+  const translateY = useMemo(() => {
+    return statusMovie === "Watching" ? "150px" : "40px";
+  }, [statusMovie]);
 
   return (
     <HoverCard>
@@ -70,10 +74,7 @@ export const HoverCardMovie = ({ movie, status, type }) => {
                 <div className="absolute bottom-0 left-0 flex w-full justify-between px-4 pb-4 text-light-primary">
                   <p className="text-s-bold sm:text-heading-xs">{title}</p>
                   <p className="flex items-center gap-1 text-2xs sm:text-s">
-                    <Star
-                      size={window.innerWidth < 640 ? 12 : 16}
-                      fill="white"
-                    />{" "}
+                    <Star size={windowWidth < 640 ? 12 : 16} fill="white" />{" "}
                     {rating}/5
                   </p>
                 </div>
@@ -178,7 +179,7 @@ export const HoverCardMovie = ({ movie, status, type }) => {
               </div>
               <div className="flex gap-8 text-light-secondary">
                 {genre.slice(0, 3).map((g, i) => (
-                  <div key={i} className="flex items-center gap-8">
+                  <div key={`${g}-${i}`} className="flex items-center gap-8">
                     {i !== 0 && (
                       <CircleSmall
                         className="!h-4 !w-4 text-light-secondary"

@@ -9,17 +9,31 @@ import { Button } from "../ui/button";
 const FormLogin = () => {
   const form = useForm({
     defaultValues: {
-      [name]: "",
+      username: "",
+      password: "",
     },
   });
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
+    const { username, password } = data;
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(
+      (u) => u.username === username && u.password === password,
+    );
+
+    if (user) {
+      const token = btoa(username);
+      localStorage.setItem("token", token);
+      alert("Masuk berhasil!");
+      window.location.href = "/home";
+    } else {
+      alert("Username atau password salah!");
+    }
   };
 
   const [isVisible, setIsVisible] = useState({
     password: false,
-    passwordConfirmation: false,
   });
 
   return (
@@ -36,7 +50,7 @@ const FormLogin = () => {
             <FormItem>
               <FormControl>
                 <InputWithLabel
-                  type="username"
+                  type="text"
                   label="Username"
                   placeholder="Masukkan username"
                   className=""
@@ -91,6 +105,7 @@ const FormLogin = () => {
         />
         <div className="flex flex-col gap-1 sm:gap-2">
           <Button
+            tyoe="submit"
             variant="outlined"
             className="hover:other-outlineBorder h-7 w-full border-other-outlineBorder bg-other-extraBg text-2xs-semibold hover:bg-other-extraBg/80 sm:h-12 sm:text-m"
           >

@@ -13,18 +13,45 @@ import { Button } from "@/components/ui/button";
 const FormRegister = () => {
   const form = useForm({
     defaultValues: {
-      [name]: "",
+      username: "",
+      password: "",
+      passwordConfirmation: "",
     },
   });
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
+    const { username, password, passwordConfirmation } = data;
+
+    if (password !== passwordConfirmation) {
+      alert("Password dan Konfirmasi Password tidak cocok!");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const userExists = users.find((user) => user.username === username);
+    if (userExists) {
+      alert("Username sudah digunakan. Gunakan username lain.");
+      return;
+    }
+
+    const newUser = { username, password };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    const token = btoa(username);
+    localStorage.setItem("token", token);
+
+    alert("Daftar berhasil!");
+    window.location.href = "/auth/login";
   };
 
   const [isVisible, setIsVisible] = useState({
     password: false,
     passwordConfirmation: false,
   });
+
+  const password = form.watch("password");
 
   return (
     <Form {...form}>
@@ -34,13 +61,15 @@ const FormRegister = () => {
       >
         <FormField
           control={form.control}
-          name={"username"}
-          rules={{ required: "This field is required" }}
+          name="username"
+          rules={{
+            required: "This field is required",
+          }}
           render={({ field, fieldState }) => (
             <FormItem>
               <FormControl>
                 <InputWithLabel
-                  type="username"
+                  type="text"
                   label="Username"
                   placeholder="Masukkan username"
                   className=""
@@ -58,8 +87,10 @@ const FormRegister = () => {
 
         <FormField
           control={form.control}
-          name={"password"}
-          rules={{ required: "This field is required" }}
+          name="password"
+          rules={{
+            required: "This field is required",
+          }}
           render={({ field, fieldState }) => (
             <FormItem>
               <FormControl>
@@ -91,8 +122,11 @@ const FormRegister = () => {
 
         <FormField
           control={form.control}
-          name={"passwordConfirmation"}
-          rules={{ required: "This field is required" }}
+          name="passwordConfirmation"
+          rules={{
+            required: "This field is required",
+            validate: (value) => value === password || "Password tidak cocok",
+          }}
           render={({ field, fieldState }) => (
             <FormItem>
               <FormControl>
@@ -126,6 +160,7 @@ const FormRegister = () => {
         />
         <div className="flex flex-col gap-1 sm:gap-2">
           <Button
+            type="submit"
             variant="outlined"
             className="hover:other-outlineBorder h-7 w-full border-other-outlineBorder bg-other-extraBg text-2xs-semibold hover:bg-other-extraBg/80 sm:h-12 sm:text-m"
           >
