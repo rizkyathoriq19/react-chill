@@ -138,7 +138,7 @@ const FormRegister = () => {
                   iconShow={<Eye size={"100%"} />}
                   iconHide={<EyeOff size={"100%"} />}
                   leftDesc="Sudah punya akun?"
-                  linkText="Daftar"
+                  linkText="Login"
                   leftLink="/auth/login"
                   isVisible={isVisible.passwordConfirmation}
                   setIsVisible={() =>
