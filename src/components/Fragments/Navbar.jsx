@@ -10,8 +10,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, UserRound, Star, LogOut } from "lucide-react";
@@ -38,6 +36,7 @@ const dropdownItems = [
       <UserRound
         size={window.innerWidth < 640 ? 16 : 18}
         fill={hovered ? "#3254FF" : "white"}
+        stroke={hovered ? "#3254FF" : "white"}
       />
     ),
     label: "Profil Saya",
@@ -49,6 +48,7 @@ const dropdownItems = [
       <Star
         size={window.innerWidth < 640 ? 16 : 18}
         fill={hovered ? "#3254FF" : "white"}
+        stroke={hovered ? "#3254FF" : "white"}
       />
     ),
     label: "Ubah Premium",
@@ -124,25 +124,23 @@ const Navbar = () => {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="absolute right-[-20px] top-0 w-28 border-none bg-other-pageHeaderBg text-s-semibold text-light-primary sm:right-[-80px] sm:w-40">
-          <DropdownMenuLabel className="!text-xs-semibold sm:!text-m-semibold">
-            Akun Saya
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
           <DropdownMenuGroup>
             {dropdownItems.map(({ icon, label, link, key, action }) => (
-              <DropdownMenuItem key={label} className="focus:bg-transparent">
-                <div
-                  key={key}
-                  className="flex items-center gap-2 text-sm hover:text-primary"
-                  onMouseEnter={() => setHoveredItem(key)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  onClick={action ? action : undefined}
+              <DropdownMenuItem
+                key={label}
+                onMouseEnter={() => setHoveredItem(key)}
+                onMouseLeave={() => setHoveredItem(null)}
+                onClick={action ? action : undefined}
+                className="group flex w-full items-center gap-2 hover:text-primary focus:bg-transparent"
+              >
+                {icon(hoveredItem === key)}
+
+                <Link
+                  to={link}
+                  className="text-2xs-medium group-hover:text-primary sm:text-s-medium"
                 >
-                  {icon(hoveredItem === key)}{" "}
-                  <Link to={link} className="text-2xs-medium sm:text-s-medium">
-                    {label}
-                  </Link>
-                </div>
+                  {label}
+                </Link>
               </DropdownMenuItem>
             ))}
           </DropdownMenuGroup>
