@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -8,14 +8,20 @@ import {
 } from "@/components/ui/carousel";
 import { HoverCardMovie } from "@/components/Elements/HoverCard";
 import { cn } from "@/lib/utils";
-import dummyMovie from "@/data/dummyMovie";
 import itemConfig from "@/data/itemConfig";
+import useMovieStore from "@/stores/movieStore";
 
 const ListMovie = ({ title, status }) => {
+  const { movies, getMovies } = useMovieStore();
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]);
+
   const filteredMovies = useMemo(
     () =>
-      dummyMovie.filter((movie) => movie.status.some((s) => s.name === status)),
-    [status],
+      movies.filter((movie) => movie.status?.some((s) => s.name === status)),
+    [movies, status],
   );
 
   const getStatusMovie = (movie) => {
@@ -80,8 +86,3 @@ const ListMovie = ({ title, status }) => {
 };
 
 export default ListMovie;
-
-// },
-// "devDependencies": {
-// 	"nw": "^0.70.0-sdk",
-// 	"nw-gyp": "^3.6.6"
