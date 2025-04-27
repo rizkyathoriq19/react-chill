@@ -29,6 +29,8 @@ const handleLogout = () => {
   window.location.href = "/auth/login";
 };
 
+const userId = localStorage.getItem("userId");
+
 const dropdownItems = [
   {
     key: "profile",
@@ -40,7 +42,7 @@ const dropdownItems = [
       />
     ),
     label: "Profil Saya",
-    link: "",
+    link: `/profile/${userId}`,
   },
   {
     key: "premium",
@@ -74,16 +76,18 @@ const Navbar = () => {
   return (
     <nav className="flex h-14 w-full items-center bg-other-pageHeaderBg px-5 py-2 sm:h-24 sm:px-20 sm:py-6">
       {/* Logo and Title */}
-      <div className="mr-3 flex items-center justify-center gap-1 sm:mr-20">
-        <img
-          src={Icon.logo}
-          alt="Logo"
-          className="h-[14.86px] w-[17.02px] self-center sm:h-[21.47px] sm:w-[25.15px]"
-        />
-        <h1 className="hidden text-center font-londrina text-title-mb sm:block sm:text-3xl">
-          CHILL
-        </h1>
-      </div>
+      <a href="/home">
+        <div className="mr-3 flex items-center justify-center gap-1 sm:mr-20">
+          <img
+            src={Icon.logo}
+            alt="Logo"
+            className="h-[14.86px] w-[17.02px] self-center sm:h-[21.47px] sm:w-[25.15px]"
+          />
+          <h1 className="hidden text-center font-londrina text-title-mb sm:block sm:text-3xl">
+            CHILL
+          </h1>
+        </div>
+      </a>
 
       {/* Navigation Menu */}
       <NavigationMenu>

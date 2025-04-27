@@ -1,4 +1,5 @@
-import { useMemo, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Carousel,
   CarouselContent,
@@ -9,19 +10,25 @@ import {
 import { HoverCardMovie } from "@/components/Elements/HoverCard";
 import { cn } from "@/lib/utils";
 import itemConfig from "@/data/itemConfig";
-import useMovieStore from "@/stores/movieStore";
+import { setMovies } from "@/store/redux/movieReducer";
+import { fetchMovies } from "@/api/movieApi";
 
 const ListMovie = ({ title, status }) => {
-  const { movies, getMovies } = useMovieStore();
+  const dispatch = useDispatch();
+
+  const { movies } = useSelector((state) => state.movie);
 
   useEffect(() => {
-    getMovies();
-  }, [getMovies]);
+    const getMovies = async () => {
+      const fetchedMovies = await fetchMovies();
+      dispatch(setMovies(fetchedMovies));
+    };
 
-  const filteredMovies = useMemo(
-    () =>
-      movies.filter((movie) => movie.status?.some((s) => s.name === status)),
-    [movies, status],
+    getMovies();
+  }, [dispatch]);
+
+  const filteredMovies = movies.filter((movie) =>
+    movie.status?.some((s) => s.name === status),
   );
 
   const getStatusMovie = (movie) => {

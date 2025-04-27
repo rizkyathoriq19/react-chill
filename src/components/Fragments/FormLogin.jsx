@@ -5,6 +5,9 @@ import * as Icon from "@/assets";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { getAllUsers } from "@/api/movieApi";
+import { useDispatch } from "react-redux";
+import { setUser, setLoading, setError } from "@/store/redux/userReducer";
 
 const FormLogin = () => {
   const form = useForm({
@@ -14,22 +17,54 @@ const FormLogin = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const dispatch = useDispatch();
+
+  const onSubmit = async (data) => {
     const { username, password } = data;
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find(
-      (u) => u.username === username && u.password === password,
-    );
+    try {
+      dispatch(setLoading(true));
 
-    if (user) {
-      const token = btoa(username);
-      localStorage.setItem("token", token);
-      alert("Masuk berhasil!");
-      window.location.href = "/home";
-    } else {
-      alert("Username atau password salah!");
+      const users = await getAllUsers();
+      const user = users.find(
+        (u) => u.username === username && u.password === password,
+      );
+
+      if (user) {
+        const token = btoa(username);
+
+        dispatch(setUser({ user, token }));
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("userId", user.id);
+        alert("Login successfully!");
+        window.location.href = "/home";
+      } else {
+        alert("Username atau password salah!");
+      }
+
+      dispatch(setLoading(false));
+    } catch (error) {
+      dispatch(setLoading(false));
+      dispatch(setError("Something went wrong. Please try again."));
+
+      console.log(error);
+      alert("Something went wrong. Please try again.");
     }
+
+    // const users = JSON.parse(localStorage.getItem("users")) || [];
+    // const user = users.find(
+    //   (u) => u.username === username && u.password === password,
+    // );
+
+    // if (user) {
+    //   const token = btoa(username);
+    //   localStorage.setItem("token", token);
+    //   alert("Masuk berhasil!");
+    //   window.location.href = "/home";
+    // } else {
+    //   alert("Username atau password salah!");
+    // }
   };
 
   const [isVisible, setIsVisible] = useState({
@@ -105,7 +140,7 @@ const FormLogin = () => {
         />
         <div className="flex flex-col gap-1 sm:gap-2">
           <Button
-            tyoe="submit"
+            type="submit"
             variant="outlined"
             className="hover:other-outlineBorder h-7 w-full border-other-outlineBorder bg-other-extraBg text-2xs-semibold hover:bg-other-extraBg/80 sm:h-12 sm:text-m"
           >

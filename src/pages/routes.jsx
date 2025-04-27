@@ -4,6 +4,7 @@ import Register from "./auth/Register";
 import { Navigate } from "react-router-dom";
 import PageLayout from "@/components/Layouts/PageLayout";
 import NotFound from "./NotFound";
+import Profile from "./profile/Profile";
 
 export const routes = [
   {
@@ -31,6 +32,14 @@ export const routes = [
     element: (
       <PageLayout title="Daftar">
         <Register />
+      </PageLayout>
+    ),
+  },
+  {
+    path: "/profile/:userId",
+    element: (
+      <PageLayout title="Profile">
+        <Profile />
       </PageLayout>
     ),
   },

@@ -9,6 +9,9 @@ import * as Icon from "@/assets";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { createUser } from "@/api/movieApi";
+import { useDispatch } from "react-redux";
+import { setUser, setLoading, setError } from "@/store/redux/userReducer";
 
 const FormRegister = () => {
   const form = useForm({
@@ -19,7 +22,9 @@ const FormRegister = () => {
     },
   });
 
-  const onSubmit = (data) => {
+  const dispatch = useDispatch();
+
+  const onSubmit = async (data) => {
     const { username, password, passwordConfirmation } = data;
 
     if (password !== passwordConfirmation) {
@@ -27,23 +32,42 @@ const FormRegister = () => {
       return;
     }
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    try {
+      dispatch(setLoading(true));
+      const response = await createUser({
+        username,
+        password,
+      });
+      dispatch(setUser(response));
+      dispatch(setLoading(false));
 
-    const userExists = users.find((user) => user.username === username);
-    if (userExists) {
-      alert("Username sudah digunakan. Gunakan username lain.");
-      return;
+      alert("Register successfully!");
+      window.location.href = "/auth/login";
+    } catch (error) {
+      dispatch(setLoading(false));
+      dispatch(
+        setError(error.message || "Something went wrong. Please try again."),
+      );
+      console.error(error);
+      alert("Something went wrong. Please try again.");
     }
+    // const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const newUser = { username, password };
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
+    // const userExists = users.find((user) => user.username === username);
+    // if (userExists) {
+    //   alert("Username sudah digunakan. Gunakan username lain.");
+    //   return;
+    // }
 
-    const token = btoa(username);
-    localStorage.setItem("token", token);
+    // const newUser = { username, password };
+    // users.push(newUser);
+    // localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Daftar berhasil!");
-    window.location.href = "/auth/login";
+    // const token = btoa(username);
+    // localStorage.setItem("token", token);
+
+    // alert("Daftar berhasil!");
+    // window.location.href = "/auth/login";
   };
 
   const [isVisible, setIsVisible] = useState({
