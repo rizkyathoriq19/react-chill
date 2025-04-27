@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import PageLayout from "@/components/Layouts/PageLayout";
 import NotFound from "./NotFound";
 import Profile from "./profile/Profile";
+import AllMovie from "./home/Movie";
 
 export const routes = [
   {
@@ -16,6 +17,14 @@ export const routes = [
     element: (
       <PageLayout title="Beranda">
         <Beranda />
+      </PageLayout>
+    ),
+  },
+  {
+    path: "/home/movies",
+    element: (
+      <PageLayout title="Daftar Saya">
+        <AllMovie />
       </PageLayout>
     ),
   },
